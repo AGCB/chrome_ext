@@ -1,0 +1,24 @@
+{
+  "name": "Hello World!",
+  "description": "My first Chrome App.",
+  "version": "0.2",
+  "manifest_version": 2,
+  "permissions": [
+    "activeTab"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent":false
+  }
+  ,
+  "browser_action":{
+    "default_title":"We are title"
+  },
+  // "content_scripts": [
+  //   {
+  //     "matches":["<all_urls>"],
+  //     "js": ["myscript.js"]
+  //   }
+  // ],
+  "icons": { "16": "calculator-16.png", "128": "calculator-128.png" }
+}
