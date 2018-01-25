@@ -1,10 +1,13 @@
+
 {
   "name": "Hello World!",
   "description": "My first Chrome App.",
   "version": "0.2",
   "manifest_version": 2,
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "storage",
+    "pageCapture"
   ],
   "background": {
     "scripts": ["background.js"],
@@ -14,11 +17,12 @@
   "browser_action":{
     "default_title":"We are title"
   },
-  // "content_scripts": [
-  //   {
-  //     "matches":["<all_urls>"],
-  //     "js": ["myscript.js"]
-  //   }
-  // ],
+  "content_scripts": [
+    {
+      "matches":["<all_urls>"],
+      "js": ["myscript.js"]
+    }
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'", 
   "icons": { "16": "calculator-16.png", "128": "calculator-128.png" }
 }

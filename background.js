@@ -1,22 +1,28 @@
-// Background page -- background.js
-// chrome.runtime.onConnect.addListener(function(devToolsConnection) {
-//   // assign the listener function to a variable so we can remove it later
-//   var devToolsListener = function(message, sender, sendResponse) {
-//     // Inject a content script into the identified tab
-//     chrome.tabs.executeScript(message.tabId,
-//                               { file: message.scriptToInject });
-//   }
-//   // add the listener
-//   devToolsConnection.onMessage.addListener(devToolsListener);
-  
-//   devToolsConnection.onDisconnect.addListener(function() {
-//     devToolsConnection.onMessage.removeListener(devToolsListener);
-//   });
-// };                                     
+chrome.browserAction.onClicked.addListener(function (tab) {
+	// for the current tab, inject the "inject.js" file & execute it
+	chrome.tabs.executeScript(tab.ib, {
+	  file: 'copy.js'
+          //file: 'inject.js'
+	});
+});
 
-chrome.browserAction.onClicked.addListener(function(tab){
-  chrome.tabs.executeScript(tab.id,{
-    file: 'myscript.js'
-  })
-})
+chrome.browserAction.onClicked.addListener(function (tab) {
+	// for the current tab, inject the "inject.js" file & execute it
+	chrome.tabs.executeScript(tab.ib, {
+	  file: 'inject.js'
+          //file: 'inject.js'
+	});
+});
+
+
+
+// chrome.browserAction.onClicked.addListener(function(tab){
+//   // chrome.tabs.executeScript(tab.id,{
+//   //   file: 'myscript.js'
+//   // })
+//   chrome.tabs.executeScript(tab.id, {
+//     code:"console.log('bgrnd');document.body.appendChild(document.createElement('script')).src = 'https://example.com/script.js';"
+// });
+
+// })
                                      
